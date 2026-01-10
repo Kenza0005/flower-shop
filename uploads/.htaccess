@@ -1,0 +1,17 @@
+# Security configuration for uploads directory
+# This file will be overwritten by the secure upload script
+
+# Disable PHP execution (for secure version)
+php_flag engine off
+
+# Disable directory browsing
+Options -Indexes
+
+# Treat PHP files as plain text
+AddType text/plain .php .php3 .php4 .php5 .phtml
+
+# Block dangerous file types
+<FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
