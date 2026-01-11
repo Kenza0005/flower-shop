@@ -9,7 +9,7 @@
 ### 1. Installation XAMPP
 1. Télécharger XAMPP : https://www.apachefriends.org/
 2. Installer dans `C:\xampp\`
-3. Copier le projet dans `C:\xampp\htdocs\Projet-Pentesting_web\`
+3. Copier le projet dans `C:\xampp\htdocs\flower-shop\`
 
 ### 2. Configuration PHP LDAP
 1. Éditer `C:\xampp\php\php.ini`
