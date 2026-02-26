@@ -6,7 +6,7 @@ define('DB_PASS', '');
 define('DB_NAME', 'ent_flowershop');
 
 // LDAP configuration (authentification)
-define('LDAP_HOST', 'localhost');
+define('LDAP_HOST', '127.0.0.1');
 define('LDAP_PORT', 389);
 define('LDAP_BASE_DN', 'dc=shop,dc=local');
 define('LDAP_BIND_DN', 'cn=admin,dc=shop,dc=local');
@@ -14,7 +14,7 @@ define('LDAP_BIND_PASSWORD', 'admin123');
 define('LDAP_USER_BASE', 'ou=users,dc=shop,dc=local');
 
 // Site configuration
-define('SITE_URL', 'http://localhost/ent-flowershop');
+define('SITE_URL', 'http://localhost/flower-shop');
 define('SITE_NAME', 'Flower Shop - Boutique des Jardins');
 define('SHOP_NAME', 'Boutique des Jardins');
 
