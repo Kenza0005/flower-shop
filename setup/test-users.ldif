@@ -1,0 +1,166 @@
+# Fichier LDIF pour importer les utilisateurs de test
+# Usage: ldapadd -x -D "cn=admin,dc=shop,dc=local" -w admin123 -f test-users.ldif
+
+# Unité organisationnelle pour les utilisateurs
+dn: ou=users,dc=shop,dc=local
+objectClass: organizationalUnit
+ou: users
+
+# Unité organisationnelle pour les groupes
+dn: ou=groups,dc=shop,dc=local
+objectClass: organizationalUnit
+ou: groups
+
+# Utilisateur Admin
+dn: uid=admin,ou=users,dc=shop,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: admin
+cn: Administrateur Système
+sn: Système
+givenName: Administrateur
+mail: admin@boutique-jardins.fr
+employeeType: admin
+ou: Administration
+uidNumber: 1000
+gidNumber: 1000
+homeDirectory: /home/admin
+loginShell: /bin/bash
+userPassword: admin123
+
+# Gérant Sophie
+dn: uid=manager.sophie,ou=users,dc=shop,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: manager.sophie
+cn: Sophie Gérant
+sn: Gérant
+givenName: Sophie
+mail: s.gerant@boutique-jardins.fr
+employeeType: manager
+ou: Gestion
+uidNumber: 1001
+gidNumber: 1001
+homeDirectory: /home/manager.sophie
+loginShell: /bin/bash
+userPassword: sophie123
+
+# Vendeur Marie
+dn: uid=seller.marie,ou=users,dc=shop,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: seller.marie
+cn: Marie Vendeur
+sn: Vendeur
+givenName: Marie
+mail: m.vendeur@boutique-jardins.fr
+employeeType: seller
+ou: Vente
+uidNumber: 1002
+gidNumber: 1002
+homeDirectory: /home/seller.marie
+loginShell: /bin/bash
+userPassword: marie123
+
+# Vendeur Jean
+dn: uid=seller.jean,ou=users,dc=shop,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: seller.jean
+cn: Jean Vendeur
+sn: Vendeur
+givenName: Jean
+mail: j.vendeur@boutique-jardins.fr
+employeeType: seller
+ou: Vente
+uidNumber: 1003
+gidNumber: 1002
+homeDirectory: /home/seller.jean
+loginShell: /bin/bash
+userPassword: jean123
+
+# Client Alice
+dn: uid=client.alice,ou=users,dc=shop,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: client.alice
+cn: Alice Moreau
+sn: Moreau
+givenName: Alice
+mail: alice.moreau@gmail.com
+employeeType: customer
+ou: Clients
+uidNumber: 2001
+gidNumber: 2000
+homeDirectory: /home/client.alice
+loginShell: /bin/bash
+userPassword: alice123
+
+# Client Bob
+dn: uid=client.bob,ou=users,dc=shop,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: client.bob
+cn: Bob Leroy
+sn: Leroy
+givenName: Bob
+mail: bob.leroy@gmail.com
+employeeType: customer
+ou: Clients
+uidNumber: 2002
+gidNumber: 2000
+homeDirectory: /home/client.bob
+loginShell: /bin/bash
+userPassword: bob123
+
+# Groupes
+dn: cn=admins,ou=groups,dc=shop,dc=local
+objectClass: groupOfNames
+cn: admins
+member: uid=admin,ou=users,dc=shop,dc=local
+
+dn: cn=managers,ou=groups,dc=shop,dc=local
+objectClass: groupOfNames
+cn: managers
+member: uid=manager.sophie,ou=users,dc=shop,dc=local
+
+dn: cn=sellers,ou=groups,dc=shop,dc=local
+objectClass: groupOfNames
+cn: sellers
+member: uid=seller.marie,ou=users,dc=shop,dc=local
+member: uid=seller.jean,ou=users,dc=shop,dc=local
+
+dn: cn=customers,ou=groups,dc=shop,dc=local
+objectClass: groupOfNames
+cn: customers
+member: uid=client.alice,ou=users,dc=shop,dc=local
+member: uid=client.bob,ou=users,dc=shop,dc=local
+
+# Compte de Déploiement/Test Technique
+dn: uid=test-deploy,ou=users,dc=shop,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: test-deploy
+cn: Compte Technique
+sn: Technique
+givenName: Test Deploy
+mail: test-deploy@boutique-jardins.fr
+employeeType: admin
+ou: Technique
+uidNumber: 1005
+gidNumber: 1000
+homeDirectory: /home/test-deploy
+loginShell: /bin/bash
+userPassword: azerty123
+
+dn: cn=tech,ou=groups,dc=shop,dc=local
+objectClass: groupOfNames
+cn: tech
+member: uid=test-deploy,ou=users,dc=shop,dc=local
